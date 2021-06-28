@@ -6,12 +6,14 @@ export interface ConverterFormState {
   value: string;
   error: boolean;
   errorText: string;
+  touched: boolean;
 }
 
 const initialState: ConverterFormState = {
   value: "",
   error: false,
-  errorText: polish.VALUE_MUST_BE_NUMBER,
+  errorText: "\u00a0",
+  touched: false,
 };
 
 /**
@@ -33,6 +35,12 @@ function useConverterFormState() {
     setState({ ...stateCopy });
   }
 
+  function setTouched(touched: boolean): void {
+    let stateCopy: ConverterFormState = state;
+    stateCopy.touched = touched;
+    setState({ ...stateCopy });
+  }
+
   function setErrorText(errorText: string): void {
     let stateCopy: ConverterFormState = state;
     stateCopy.errorText = errorText;
@@ -45,6 +53,7 @@ function useConverterFormState() {
     setError(error);
     setErrorText(errorText);
     setValue(value);
+    setTouched(true);
   }
 
   return { state, handleChange };
