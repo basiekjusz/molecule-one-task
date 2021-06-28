@@ -15,6 +15,11 @@ const initialState: ConverterState = {
   loading: false,
 };
 
+/**
+ * useConverterState() is a hook that generates ConverterState and
+ * functions that allow easy management of it's values. Also contains submit()
+ * function that generates runic representation of given number.
+ */
 function useConverterState() {
   const [state, setState] = useState<ConverterState>(initialState);
 
