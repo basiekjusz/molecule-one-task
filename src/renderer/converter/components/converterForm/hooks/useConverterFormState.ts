@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { polish } from "../../../../../language/polish";
+import validateConverterValue from "./validateConverterValue";
 
-interface ConverterFormState {
+export interface ConverterFormState {
   value: string;
   error: boolean;
   errorText: string;
@@ -38,26 +39,11 @@ function useConverterFormState() {
     setState({ ...stateCopy });
   }
 
-  function validate(value: string): void {
-    const valueNumber: number = parseInt(value);
-
-    let error = true;
-    if (isNaN(valueNumber)) {
-      setErrorText(polish.VALUE_MUST_BE_NUMBER);
-    } else if (valueNumber % 1 !== 0 || valueNumber < 1) {
-      setErrorText(polish.VALUE_MUST_BE_NATURAL);
-    } else if (valueNumber > 9999) {
-      setErrorText(polish.VALUE_MUST_BE_SMALLER_THAN);
-    } else {
-      error = false;
-    }
-
-    setError(error);
-  }
-
   function handleChange(event: React.ChangeEvent<HTMLInputElement>): void {
     const value = event.target.value;
-    validate(value);
+    const { error, errorText } = validateConverterValue(value);
+    setError(error);
+    setErrorText(errorText);
     setValue(value);
   }
 
