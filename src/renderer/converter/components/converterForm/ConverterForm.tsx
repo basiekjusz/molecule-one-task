@@ -1,11 +1,16 @@
-import { TextField, FormHelperText, Box, Button } from "@material-ui/core";
-import { polish } from "../../../../language/polish";
+import { Box } from "@material-ui/core";
+import ConverterFormInput from "./components/ConverterFormInput";
+import ConverterFormSubmitButton from "./components/ConverterFormSubmitButton";
 import useConverterFormState from "./hooks/useConverterFormState";
 
 interface ConverterFormProps {
   submit: (value: number) => void;
 }
 
+/**
+ * ConverterForm component allows user to enter number to convert it to runic system.
+ * Handles input validation.
+ */
 function ConverterForm(props: ConverterFormProps) {
   const { state, handleChange } = useConverterFormState();
 
@@ -26,25 +31,16 @@ function ConverterForm(props: ConverterFormProps) {
         width={1}
         mt={2}
       >
-        <Box width={0.5}>
-          <TextField
-            error={state.error}
-            label={polish.CONVERTER_INPUT_LABEL}
-            type="number"
-            onChange={handleChange}
-            value={state.value}
-            fullWidth
-            inputProps={{
-              "data-testid": "converter-input",
-            }}
-          />
-          <FormHelperText>{state.errorText}</FormHelperText>
-        </Box>
-        <Box ml={3}>
-          <Button type="submit" disabled={state.error || !state.touched}>
-            {polish.CONVERTER_SUBMIT_LABEL}
-          </Button>
-        </Box>
+        <ConverterFormInput
+          value={state.value}
+          error={state.error}
+          errorText={state.errorText}
+          onChange={handleChange}
+        />
+        <ConverterFormSubmitButton
+          error={state.error}
+          touched={state.touched}
+        />
       </Box>
     </form>
   );
