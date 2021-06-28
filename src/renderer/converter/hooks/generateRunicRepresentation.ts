@@ -1,5 +1,10 @@
 import mergeImages, { ImageSource } from "merge-images";
 
+/**
+ * generateRunicRepresentation() is a hook that generates .png
+ * of runic representation of given value. Uses merge-images package
+ * for composing output image.
+ */
 async function generateRunicRepresentation(value: number) {
   const ones = Math.floor(value % 10);
   const tens = Math.floor((value / 10) % 10) * 10;
