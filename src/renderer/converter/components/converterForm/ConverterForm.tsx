@@ -14,7 +14,7 @@ interface ConverterFormProps {
 function ConverterForm(props: ConverterFormProps) {
   const { state, handleChange } = useConverterFormState();
 
-  function handleSubmit(event: any) {
+  function handleSubmit(event: any): void {
     event.preventDefault();
     if (!state.error) {
       props.submit(parseInt(state.value));

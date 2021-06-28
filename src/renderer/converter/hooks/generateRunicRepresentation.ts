@@ -5,7 +5,7 @@ import mergeImages, { ImageSource } from "merge-images";
  * of runic representation of given value. Uses merge-images package
  * for composing output image.
  */
-async function generateRunicRepresentation(value: number) {
+async function generateRunicRepresentation(value: number): Promise<string> {
   const ones = Math.floor(value % 10);
   const tens = Math.floor((value / 10) % 10) * 10;
   const hundreds = Math.floor((value / 100) % 10) * 100;
