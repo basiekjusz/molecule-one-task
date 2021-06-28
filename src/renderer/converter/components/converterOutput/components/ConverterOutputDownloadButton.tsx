@@ -7,7 +7,7 @@ interface DownloadButtonProps {
   value: number;
 }
 
-function DownloadButton(props: DownloadButtonProps) {
+function ConverterOutputDownloadButton(props: DownloadButtonProps) {
   const { image, value } = props;
 
   return (
@@ -19,4 +19,4 @@ function DownloadButton(props: DownloadButtonProps) {
   );
 }
 
-export default DownloadButton;
+export default ConverterOutputDownloadButton;
