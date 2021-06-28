@@ -15,7 +15,7 @@ function Converter() {
       <Typography variant="subtitle1">
         {polish.RUNIC_CONVERTER_DESCRIPTION}
       </Typography>
-      <ConverterForm />
+      <ConverterForm submit={(value: string) => console.log(value)} />
       <ConverterOutput />
     </Box>
   );
