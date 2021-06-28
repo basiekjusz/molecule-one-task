@@ -9,4 +9,6 @@ export const polish = {
   VALUE_MUST_BE_NUMBER: "Podana wartość musi być liczbą.",
   VALUE_MUST_BE_NATURAL: "Podana liczba musi być naturalna.",
   VALUE_MUST_BE_SMALLER_THAN: "Podana liczba musi być mniejsza lub równa 9999.",
+  CONVERTER_INPUT_LABEL: "Liczba do przekonwertowania",
+  CONVERTER_SUBMIT_LABEL: "Konwertuj",
 };

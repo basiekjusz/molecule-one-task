@@ -1,5 +1,6 @@
 import { TextField, FormHelperText, Box, Button } from "@material-ui/core";
 import React from "react";
+import { polish } from "../../../../language/polish";
 import useConverterFormState from "./hooks/useConverterFormState";
 
 interface ConverterFormProps {
@@ -28,20 +29,20 @@ function ConverterForm(props: ConverterFormProps) {
         <Box width={0.5}>
           <TextField
             error={state.error}
-            label="Liczba do przekonwertowania"
+            label={polish.CONVERTER_INPUT_LABEL}
             type="number"
             onChange={handleChange}
             value={state.value}
             fullWidth
             inputProps={{
-              "data-testid": "main-input",
+              "data-testid": "converter-input",
             }}
           />
           <FormHelperText>{state.errorText}</FormHelperText>
         </Box>
         <Box ml={3}>
           <Button type="submit" disabled={state.error || !state.touched}>
-            Konwertuj
+            {polish.CONVERTER_SUBMIT_LABEL}
           </Button>
         </Box>
       </Box>

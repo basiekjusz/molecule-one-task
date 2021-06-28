@@ -14,7 +14,7 @@ describe("ConverterForm", function () {
 
   beforeEach(function () {
     renderResult = render(<ConverterForm submit={submit} />);
-    input = renderResult.getByTestId("main-input") as HTMLInputElement;
+    input = renderResult.getByTestId("converter-input") as HTMLInputElement;
   });
 
   it("should change on input", async function () {
