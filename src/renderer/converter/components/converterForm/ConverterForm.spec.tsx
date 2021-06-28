@@ -10,7 +10,7 @@ import ConverterForm from "./ConverterForm";
 describe("ConverterForm", function () {
   let renderResult: RenderResult;
   let input: HTMLInputElement;
-  const submit = (value: string) => {};
+  const submit = (value: number) => {};
 
   beforeEach(function () {
     renderResult = render(<ConverterForm submit={submit} />);

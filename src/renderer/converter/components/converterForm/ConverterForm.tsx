@@ -1,10 +1,9 @@
 import { TextField, FormHelperText, Box, Button } from "@material-ui/core";
-import React from "react";
 import { polish } from "../../../../language/polish";
 import useConverterFormState from "./hooks/useConverterFormState";
 
 interface ConverterFormProps {
-  submit: (value: string) => void;
+  submit: (value: number) => void;
 }
 
 function ConverterForm(props: ConverterFormProps) {
@@ -13,7 +12,7 @@ function ConverterForm(props: ConverterFormProps) {
   function handleSubmit(event: any) {
     event.preventDefault();
     if (!state.error) {
-      props.submit(state.value);
+      props.submit(parseInt(state.value));
     }
   }
 
@@ -25,6 +24,7 @@ function ConverterForm(props: ConverterFormProps) {
         justifyContent="center"
         alignItems="center"
         width={1}
+        mt={2}
       >
         <Box width={0.5}>
           <TextField
