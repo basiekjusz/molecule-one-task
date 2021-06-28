@@ -12,6 +12,10 @@ interface ConverterOutputProps {
   value: number;
 }
 
+/**
+ * ConverterOutput takes care of displaying converter's output.
+ * Displays CircularProgres in case of loading.
+ */
 function ConverterOutput(props: ConverterOutputProps) {
   const { image, done, loading, value } = props;
 
